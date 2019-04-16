@@ -35,5 +35,7 @@ head(mergeddf)
 
 
 #Dataset arranged by subject and activity
-totalmean <- mergeddf %>% group_by(activity, subject) %>% summarize_all(funs(mean)) 
-write.table(totalmean, file = "~/Data Cleaning/datacleaning/tidydata.txt", row.names = FALSE, col.names = TRUE) 
+library(dplyr)
+totalmean<-arrange(mergeddf, subject, activity)
+head(totalmean)
+write.table(totalmean, file = "~/Data Cleaning/datacleaning/tidydata.txt", row.names = TRUE, col.names = TRUE) 
